@@ -1,0 +1,62 @@
+<meta charset="utf-8">
+
+<h1> Cadastro academia</h1>
+
+<script src="funcao.js"> </script>
+<script src="https://lib-param.artdiniz.now.sh/libIdade.js"> </script>
+
+<script>
+    var nome = prompt("Digite o nome")
+
+    var peso = pegaNumero( "Digite o peso" )
+    var altura = pegaNumero( "Digite a altura" )
+    
+    var imc = peso / Math.pow(altura, 2)
+
+    var dataAniversario = prompt("Digite sua data de nascimento")
+
+    var lista = dataAniversario.split('/')
+
+    var diaNascimento = lista[0]
+    var mesNascimento = lista[1]
+    var anoNascimento = lista[2]
+
+    var idade = calculaIdade(diaNascimento, mesNascimento, anoNascimento)
+
+    var temProblemaCardiaco = confirm("Tem problemas cardíacos?")
+
+    if ( temProblemaCardiaco ){ 
+          var frasePlobemasCardiacos = "TEM problemas cardíacos" 
+     }
+    if ( !temProblemaCardiaco ) {
+          var frasePlobemasCardiacos = "NÃO tem problemas cardíacos"
+    }
+
+    var ehMenorDeIdade = idade <= 15
+
+    if ( ehMenorDeIdade || temProblemaCardiaco ) {
+          var fraseAcompanhamentoMedico = "PRECISA de acompanhamento médico"
+     }
+    
+     if( !ehMenorDeIdade && !temProblemaCardiaco ) {
+          var fraseAcompanhamentoMedico = "NÃO PRECISA de acompanhamento médico"
+     }
+   document.write(`
+        Nome: ${ nome }
+        <br>
+        Peso: ${ peso }
+        <br>
+        Altura: ${ altura }
+        <br>
+        IMC: ${ imc }
+        <br>
+        Data de aniversário: ${ dataAniversario }
+        <br>
+        Idade: ${ idade }
+        <br>
+        ${ frasePlobemasCardiacos }
+        <br>
+        ${ fraseAcompanhamentoMedico }
+   `)
+
+</script>

@@ -1,0 +1,36 @@
+<h1>
+    Loteria
+</h1>
+
+<button onclick="jogar()"> Jogar </button>
+
+<script src="funcao.js"></script>
+<script src="https://lib.artdiniz.now.sh/mostra.js"></script>
+<script>
+    var numeroJogo = 0
+
+    function jogar() {
+        numeroJogo = numeroJogo + 1
+
+        var numeroMagico = parseInt(Math.random() * 1000 )
+        
+        console.log(numeroMagico)
+
+        var chute = pegaNumero("Chute um número (de 0 a 1000)")
+
+        while ( chute > 1000 || isNaN(chute) || chute < 0) {
+            var chute = pegaNumero('Número inválido. Digite Novamente.')
+        }
+
+        var ganhou = chute == numeroMagico
+
+        
+        if ( ganhou ) {
+            mostra(`Jogo ${ numeroJogo } - Vc ganhou`)
+        }
+        
+        if( !ganhou ) {
+            mostra(`Jogo ${ numeroJogo } - Vc perdeu`)
+        }
+    }
+</script>

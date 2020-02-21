@@ -1,0 +1,22 @@
+<meta charset="utf-8">
+
+<title> IMC </title>
+
+<h1> 
+    Calculadora de IMC
+</h1>
+
+<script src="funcao.js"> </script>
+
+<script>
+    var altura = pegaNumero( "Digite a altura: " )
+
+    var peso = pegaNumero(
+        "Digite o peso: " 
+    )
+
+    var imc = peso / Math.pow(altura, 2)
+
+    document.write("O IMC calculado é: ", imc.toFixed(2))
+    
+</script>

@@ -1,0 +1,62 @@
+<meta charset="utf-8">
+
+<h1> Uber vs Carro </h1>
+
+<h2> Uber </h2>
+
+<script src="funcao.js"></script>
+
+<script src="https://lib.artdiniz.now.sh/libRelogio.js"></script>
+
+<script>
+
+    var taxaBase = 2
+
+    var origem  = prompt()
+
+    var destino = prompt()
+
+    // Graphic User Iterface - GUI - Site do google maps
+    // Application Programming Interface - API:
+    var distancia = maps.google.distance(origem,  destino)
+
+    var velociDadeMedia = 25
+
+    var tempoEmMinutos =  distancia / velociDadeMedia * 60
+    
+    var totalUber = taxaBase + 1.4 * distancia + 0.26 * tempoEmMinutos
+
+    var tempoFormatado = formataRelogio( tempoEmMinutos )
+
+    var valor = totalUber
+
+    document.write(`
+        Tempo: ${ tempoFormatado }
+        <br>
+        Total: R$ ${ formataDinheiro() }
+    `)
+</script>
+    
+<br>
+
+<h2> Carro </h2>
+
+<script>
+    var valorEstacionamento = pegaNumero( 'Digite o valor do estacionamento, por favor' )
+
+    var consumoCarro = 9
+    var precoLitro = 4
+
+    var valorGasolina= distancia / consumoCarro * precoLitro
+
+    var total = valorEstacionamento + valorGasolina
+
+    document.write(`
+        Gasolina: R$ ${ valorGasolina.toFixed(2).replace("." , ",") }
+        <br>
+        Estacionamento: R$ ${ valorEstacionamento.toFixed(2).replace("." , ",") }
+        <br>
+        Total: R$ ${ total.toFixed(2).replace("." , ",") }
+        <br>
+    `)
+</script>
